@@ -87,8 +87,8 @@ static void unet_nl_setup(struct net_device *dev)
 	dev->mtu = 65535;	/* unet handles fragmentation */
 	dev->type = ARPHRD_UNET;
 	dev->flags = IFF_POINTOPOINT | IFF_NOARP;
-	dev->min_mtu = 68;
-	dev->max_mtu = 65535;
+	//dev->min_mtu = 68;
+	//dev->max_mtu = 65535;
 
 	dev->hw_features = NETIF_F_LLTX;
 	dev->netdev_ops = &unet_netdev_ops;
