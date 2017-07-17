@@ -1,0 +1,48 @@
+#
+# uNet configuration
+#
+
+menuconfig UNET
+	tristate "The uNet Protocol"
+	depends on INET
+	select CONFIGFS_FS
+	select SYSFS
+	select PROC_FS
+	select CRYPTO_RSA
+	select CRYPTO_CCM
+	select CRYPTO_GCM
+	select CRYPTO_GCM
+	select CRYPTO_SHA1
+	select CRYPTO_SHA256
+	select CRYPTO_SHA512
+	select CRYPTO_AES
+	select CRYPTO_DEFLATE
+	select ASYMMETRIC_KEY_TYPE
+	select ASYMMETRIC_PUBLIC_KEY_SUBTYPE
+	select X509_CERTIFICATE_PARSER
+	select PKCS7_MESSAGE_PARSER
+	select SYSTEM_TRUSTED_KEYRING
+	select CRC16
+	select CRYPTO_ANSI_CPRNG
+	---help---
+	  uNet Protocol support.
+
+	  This protocol support is also available as a module ( = code which
+	  can be inserted in and removed from the running kernel whenever you
+	  want). The module will be called unet. If you want to compile it
+	  as a module, say M here and read <file:Documentation/kbuild/modules.txt>.
+
+	  If in doubt, say N.
+
+if UNET
+
+config UNET_REFCOUNT_DEBUG
+	bool "uNet refcount debugging enable"
+	default n
+	---help---
+	  Refcount debugging is expensive, this turns it on.
+	  You still need to enable it on runtime
+
+	  Say N if you don't need it.
+
+endif

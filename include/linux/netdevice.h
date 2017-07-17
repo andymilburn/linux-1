@@ -1544,6 +1544,7 @@ enum netdev_priv_flags {
  *	@vlan_info:	VLAN info
  *	@dsa_ptr:	dsa specific data
  *	@tipc_ptr:	TIPC specific data
+ *	@unet_ptr:	UNET specific data
  *	@atalk_ptr:	AppleTalk link
  *	@ip_ptr:	IPv4 specific data
  *	@dn_ptr:	DECnet specific data
@@ -1766,6 +1767,9 @@ struct net_device {
 #endif
 #if IS_ENABLED(CONFIG_TIPC)
 	struct tipc_bearer __rcu *tipc_ptr;
+#endif
+#if IS_ENABLED(CONFIG_UNET)
+	struct unet_bearer __rcu *unet_ptr;
 #endif
 	void 			*atalk_ptr;
 	struct in_device __rcu	*ip_ptr;
